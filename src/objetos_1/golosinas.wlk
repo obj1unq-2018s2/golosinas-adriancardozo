@@ -9,19 +9,39 @@ object bombon {
 }
 
 object alfajor {
-	// definir
+	var peso = 300
+	method precio() = 12
+	method peso() = peso
+	method gusto() = "chocolate"
+	method libreGluten() = false
+	method mordisco(){ peso = peso * 0.8 }
 }
 
 object caramelo {
-	// definir
+	var peso = 5
+	method precio() = 1
+	method peso() = peso
+	method gusto() = "frutilla"
+	method libreGluten() = true
+	method mordisco(){ peso -= 1 }
 }
 
 object chupetin {
-	// definir
+	var peso = 7
+	method precio() = 2
+	method peso() = peso
+	method gusto() = "naranja"
+	method libreGluten() = true
+	method mordisco(){ peso = if(peso < 2) peso else peso * 0.9 }
 }
 
 object oblea {
-	// definir
+	var peso = 250
+	method precio() = 5
+	method peso() = peso
+	method gusto() = "vainilla"
+	method libreGluten() = false
+	method mordisco(){ peso = if(peso > 70) peso / 2 else peso * 0.75 }
 }
 
 object chocolatin {
@@ -36,6 +56,11 @@ object chocolatin {
 		pesoInicial = cuanto
 		pesoActual = cuanto
 	}
+	method peso() = pesoActual
+	method precio() = 0.50 * pesoInicial
+	method libreGluten() = false
+	method gusto() = "chocolate"
+	method mordisco() { pesoActual -= 2 }
 }
 
 object golosinaBaniada {
@@ -43,18 +68,25 @@ object golosinaBaniada {
 	var pesoBanio = 4
 	
 	method baniaA(unaGolosina) { golosinaInterior = unaGolosina }
-	method precio() { /* completar */ }
-	method peso() { /* completar */ }
+	method precio() { return golosinaInterior.precio() + 2 }
+	method peso() { return golosinaInterior.peso() + pesoBanio }
 	method mordisco() {
 		golosinaInterior.mordisco()
 		if (pesoBanio > 0) { pesoBanio -= 2 }
 		// otra forma de hacer la cuenta: pesoBanio = (pesoBanio - 2).max(0) 
 	}	
 	method gusto() { return golosinaInterior.gusto() }
-	method libreGluten() { /* completar */}	
+	method libreGluten() { return golosinaInterior.libreGluten() }	
 }
 
 object tuttifrutti {
 	// como manejar el cambio de sabor ??
+	var saboresPosibles = ["frutilla","chocolate","naranja"]
+	var saborActual = 0
+	var peso = 5
+	var property libreGluten = false
+	method precio() = if(libreGluten) 7 else 10
+	method peso() = peso
+	method mordisco(){ saborActual = (saborActual + 1) % 3 }
+	method gusto() = saboresPosibles.get(saborActual)
 }
-
