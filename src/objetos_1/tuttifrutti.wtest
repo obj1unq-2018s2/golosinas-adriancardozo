@@ -1,0 +1,69 @@
+import golosinas.*
+
+describe "test de tuttifrutti" {
+
+	test "peso inicial" {
+		tuttifrutti.libreGluten(true)
+		assert.equals(5, tuttifrutti.peso())
+		
+		tuttifrutti.libreGluten(false)
+		assert.equals(5, tuttifrutti.peso())
+	}
+	
+	test "precio" {
+		tuttifrutti.libreGluten(true)
+		assert.equals(7, tuttifrutti.precio())
+		
+		tuttifrutti.libreGluten(false)
+		assert.equals(10, tuttifrutti.precio())
+	}
+	
+	test "mordiscos sin gluten" {
+		tuttifrutti.libreGluten(true)
+		assert.equals("frutilla", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("chocolate", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("naranja", tuttifrutti.gusto())
+	}
+	
+	test "mordiscos con gluten" {
+		tuttifrutti.libreGluten(false)
+		assert.equals("frutilla", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("chocolate", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("naranja", tuttifrutti.gusto())
+	}
+	
+	test "gusto sin gluten" {
+		tuttifrutti.libreGluten(true)
+		assert.equals("frutilla", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("chocolate", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("naranja", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("frutilla", tuttifrutti.gusto())
+	}
+	
+	test "gusto con gluten" {
+		tuttifrutti.libreGluten(false)
+		assert.equals("frutilla", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("chocolate", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("naranja", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("frutilla", tuttifrutti.gusto())
+	}
+	
+	test "libre de gluten" {
+		tuttifrutti.libreGluten(true)
+		assert.that(tuttifrutti.libreGluten())	
+		
+		tuttifrutti.libreGluten(false)
+		assert.that(not tuttifrutti.libreGluten())	
+	}
+	
+}
