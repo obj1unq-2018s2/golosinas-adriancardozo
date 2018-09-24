@@ -1,7 +1,7 @@
 import golosinas.*
 
 describe "test de alfajor" {
-
+	var alfajor = new Alfajor()
 	test "peso inicial" {
 		assert.equals(300, alfajor.peso())
 	}
