@@ -1,7 +1,7 @@
 import golosinas.*
 
 describe "test de tuttifrutti" {
-
+	var tuttifrutti = new Tuttifrutti()
 	test "peso inicial" {
 		tuttifrutti.libreGluten(true)
 		assert.equals(5, tuttifrutti.peso())

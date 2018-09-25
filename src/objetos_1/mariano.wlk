@@ -1,3 +1,4 @@
+import golosinas.*
 object mariano {
 	// para este objeto no damos pistas
 	// definimos algunos métodos para que compile el test
@@ -19,5 +20,11 @@ object mariano {
 	method pesoGolosinas() = bolsaDeGolosinas.sum{ golosina => golosina.peso() }
 	method golosinasFaltantes(golosinasDeseadas) = golosinasDeseadas.asSet().difference(bolsaDeGolosinas.asSet())
 	method gustosFaltantes(gustosDeseados) = gustosDeseados.asSet().difference(self.sabores())
+
+	method baniar(unaGolosina){
+		var golosinaBaniada = new GolosinaBaniada()
+		golosinaBaniada.baniaA(unaGolosina)
+		self.comprar(golosinaBaniada)
+	}
 }
 

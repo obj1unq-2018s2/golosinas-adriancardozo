@@ -1,106 +1,115 @@
 import golosinas.*
 
 describe "test de golosinaBaniada" {
-
+	var tuttifrutti = new Tuttifrutti()
+	var chocolatin = new Chocolatin(pesoInicial = 40, pesoActual = 40)
+	var chupetin = new Chupetin()
+	var golosinaBaniada1 = new GolosinaBaniada(golosinaInterior = tuttifrutti)
+	var golosinaBaniada2 = new GolosinaBaniada(golosinaInterior = chocolatin)
+	var golosinaBaniada3 = new GolosinaBaniada(golosinaInterior = chupetin)
 	test "peso inicial con tuttifrutti" {
-		golosinaBaniada.baniaA(tuttifrutti)
-		assert.equals(9, golosinaBaniada.peso())
+		//golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals(9, golosinaBaniada1.peso())
 	}
 	
 	test "peso inicial con chocolatin" {
-		chocolatin.pesoInicial(40)
-		golosinaBaniada.baniaA(chocolatin)
-		assert.equals(44, golosinaBaniada.peso())
+		//chocolatin.pesoInicial(40)
+		//golosinaBaniada.baniaA(chocolatin)
+		assert.equals(44, golosinaBaniada2.peso())
 	}
 	
 	test "peso inicial con chupetin" {
-		golosinaBaniada.baniaA(chupetin)
-		assert.equals(11, golosinaBaniada.peso())
+		//golosinaBaniada.baniaA(chupetin)
+		assert.equals(11, golosinaBaniada3.peso())
 	}
 	
 	test "precio con tuttifrutti" {
 		tuttifrutti.libreGluten(true)
-		golosinaBaniada.baniaA(tuttifrutti)
-		assert.equals(9, golosinaBaniada.precio())
+		//golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals(9, golosinaBaniada1.precio())
 		tuttifrutti.libreGluten(false)
-		assert.equals(12, golosinaBaniada.precio())
+		assert.equals(12, golosinaBaniada1.precio())
 	}
 	
 	test "precio con chocolatin" {
-		chocolatin.pesoInicial(40)
-		golosinaBaniada.baniaA(chocolatin)
-		assert.equals(22, golosinaBaniada.precio())
+		//chocolatin.pesoInicial(40)
+		//golosinaBaniada.baniaA(chocolatin)
+		assert.equals(22, golosinaBaniada2.precio())
 	}
 	
 	test "precio con chupetin" {
-		golosinaBaniada.baniaA(chupetin)
-		assert.equals(4, golosinaBaniada.precio())
+		//golosinaBaniada.baniaA(chupetin)
+		assert.equals(4, golosinaBaniada3.precio())
 	}
 	
 	test "mordiscos con tuttifrutti" {
-		golosinaBaniada.baniaA(tuttifrutti)
-		assert.equals("frutilla", tuttifrutti.gusto())
-		golosinaBaniada.mordisco()
-		assert.equals("chocolate", tuttifrutti.gusto())
-		assert.equals(7, golosinaBaniada.peso())
-		golosinaBaniada.mordisco()
-		assert.equals("naranja", tuttifrutti.gusto())
-		assert.equals(5, golosinaBaniada.peso())
+		//golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals("frutilla", golosinaBaniada1.gusto())
+		golosinaBaniada1.mordisco()
+		assert.equals("chocolate", golosinaBaniada1.gusto())
+		assert.equals(7, golosinaBaniada1.peso())
+		golosinaBaniada1.mordisco()
+		assert.equals("naranja", golosinaBaniada1.gusto())
+		assert.equals(5, golosinaBaniada1.peso())
 	}
 	
 	test "mordiscos con chocolatin" {
-		chocolatin.pesoInicial(40)
-		golosinaBaniada.baniaA(chocolatin)
-		golosinaBaniada.mordisco()
+		//chocolatin.pesoInicial(40)
+		//golosinaBaniada.baniaA(chocolatin)
+		golosinaBaniada2.mordisco()
 		assert.equals(38 ,chocolatin.peso())
-		assert.equals(40, golosinaBaniada.peso())
-		golosinaBaniada.mordisco()
+		assert.equals(40, golosinaBaniada2.peso())
+		golosinaBaniada2.mordisco()
 		assert.equals(36 ,chocolatin.peso())
-		assert.equals(36, golosinaBaniada.peso())
+		assert.equals(36, golosinaBaniada2.peso())
 	}
 	
 	test "mordiscos con chupetin" {
-		golosinaBaniada.baniaA(chupetin)
-		golosinaBaniada.mordisco()
+		//golosinaBaniada.baniaA(chupetin)
+		golosinaBaniada3.mordisco()
 		assert.equals(6.3 ,chupetin.peso())
-		assert.equals(8.3, golosinaBaniada.peso())
-		golosinaBaniada.mordisco()
+		assert.equals(8.3, golosinaBaniada3.peso())
+		golosinaBaniada3.mordisco()
 		assert.equals(5.67 ,chupetin.peso())
-		assert.equals(5.67, golosinaBaniada.peso())
+		assert.equals(5.67, golosinaBaniada3.peso())
 	}
 	
 	test "gusto con tuttifrutti" {
-		golosinaBaniada.baniaA(tuttifrutti)
-		assert.equals("frutilla", golosinaBaniada.gusto())
-		golosinaBaniada.mordisco()
-		assert.equals("chocolate", golosinaBaniada.gusto())
-		golosinaBaniada.mordisco()
-		assert.equals("naranja", golosinaBaniada.gusto())
-		golosinaBaniada.mordisco()
-		assert.equals("frutilla", golosinaBaniada.gusto())
+		//golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals("frutilla", golosinaBaniada1.gusto())
+		golosinaBaniada1.mordisco()
+		assert.equals("chocolate", golosinaBaniada1.gusto())
+		golosinaBaniada1.mordisco()
+		assert.equals("naranja", golosinaBaniada1.gusto())
+		golosinaBaniada1.mordisco()
+		assert.equals("frutilla", golosinaBaniada1.gusto())
 	}
 	
 	test "gusto con chocolatin" {
-		golosinaBaniada.baniaA(chocolatin)
-		assert.equals("chocolate", golosinaBaniada.gusto())
+		//golosinaBaniada.baniaA(chocolatin)
+		assert.equals("chocolate", golosinaBaniada2.gusto())
 	}
 	
 	test "gusto con chupetin" {
-		golosinaBaniada.baniaA(chupetin)
-		assert.equals("naranja", golosinaBaniada.gusto())
+		//golosinaBaniada.baniaA(chupetin)
+		assert.equals("naranja", golosinaBaniada3.gusto())
 	}
 	
 	test "libre de gluten con tuttifruti" {
 		tuttifrutti.libreGluten(true)
-		golosinaBaniada.baniaA(tuttifrutti)
-		assert.that(golosinaBaniada.libreGluten())
+		//golosinaBaniada.baniaA(tuttifrutti)
+		assert.that(golosinaBaniada1.libreGluten())
 		tuttifrutti.libreGluten(false)
-		assert.that(not golosinaBaniada.libreGluten())
+		assert.that(not golosinaBaniada1.libreGluten())
 	}
 	
 	test "libre de gluten con chocolatin" {
-		golosinaBaniada.baniaA(chocolatin)
-		assert.that(not golosinaBaniada.libreGluten())
+		//golosinaBaniada.baniaA(chocolatin)
+		assert.that(not golosinaBaniada2.libreGluten())
+	}
+	
+	test "libre de gluten con chupetin" {
+		assert.that(golosinaBaniada3.libreGluten())
 	}
 	
 }
