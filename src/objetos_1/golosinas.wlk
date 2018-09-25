@@ -23,6 +23,7 @@ object caramelo {
 	method peso() = peso
 	method gusto() = "frutilla"
 	method libreGluten() = true
+	// TODO Ojo que el peso no llegue a ser negativo!
 	method mordisco(){ peso -= 1 }
 }
 
@@ -60,6 +61,8 @@ object chocolatin {
 	method precio() = 0.50 * pesoInicial
 	method libreGluten() = false
 	method gusto() = "chocolate"
+	
+	// TODO Ojo que el peso no llegue a ser negativo!
 	method mordisco() { pesoActual -= 2 }
 }
 
