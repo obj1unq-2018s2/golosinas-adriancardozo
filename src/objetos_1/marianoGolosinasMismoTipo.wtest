@@ -1,0 +1,46 @@
+import golosinas.*
+import mariano.*
+describe "tests de mariano con varias golosinas del mismo tipo" {
+	const chocolatin1 = new Chocolatin()
+	const chocolatin2 = new Chocolatin()
+	const bombon1 = new Bombon()
+	const bombon2 = new Bombon()
+	const chupetin1 = new Chupetin()
+	const chupetin2 = new Chupetin()
+	const tuttifrutti = new Tuttifrutti()
+	fixture {
+		chocolatin1.pesoInicial(50)
+		chocolatin2.pesoInicial(10)
+		mariano.comprar(bombon1)
+		mariano.comprar(bombon2)
+		mariano.comprar(chocolatin1)
+		mariano.comprar(chocolatin2)
+		mariano.baniar(chupetin1)
+		mariano.baniar(chupetin2)
+		mariano.comprar(tuttifrutti)
+	}
+	test "test probarGolosinas"{
+		mariano.probarGolosinas()
+		assert.equals(11, bombon1.peso())
+		assert.equals(11, bombon2.peso())
+		assert.equals(48, chocolatin1.peso())
+		assert.equals(8, chocolatin2.peso())
+		assert.equals(6.3, chupetin1.peso())
+		assert.equals(6.3, chupetin2.peso())
+		assert.equals("chocolate", tuttifrutti.gusto())
+	}
+	test "test hayGolosinaSinTACC"{
+		assert.that(mariano.hayGolosinaSinTACC())
+	}
+	test "test golosinasDeSabor"{
+		assert.equals([bombon1, bombon2, tuttifrutti], mariano.golosinasDeSabor("frutilla"))
+		assert.equals([chocolatin1, chocolatin2], mariano.golosinasDeSabor("chocolate"))
+		assert.equals(2, mariano.golosinasDeSabor("naranja").size())
+		assert.equals([], mariano.golosinasDeSabor("vainilla"))
+	}
+	test "test pesoGolosinas"{
+		assert.equals(117, mariano.pesoGolosinas())
+		chocolatin1.mordisco()
+		assert.equals(115, mariano.pesoGolosinas())
+	}
+}

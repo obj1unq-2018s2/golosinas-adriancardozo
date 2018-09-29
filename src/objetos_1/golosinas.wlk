@@ -23,7 +23,7 @@ class Caramelo {
 	method peso() = peso
 	method gusto() = "frutilla"
 	method libreGluten() = true
-	method mordisco(){ peso -= 1 }
+	method mordisco(){ peso = (peso - 1).max(0) }
 }
 
 class Chupetin {
@@ -60,7 +60,7 @@ class Chocolatin {
 	method precio() = 0.50 * pesoInicial
 	method libreGluten() = false
 	method gusto() = "chocolate"
-	method mordisco() { pesoActual -= 2 }
+	method mordisco() { pesoActual = (pesoActual - 2).max(0) }
 }
 
 class GolosinaBaniada {

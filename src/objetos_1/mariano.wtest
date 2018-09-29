@@ -76,7 +76,6 @@ describe "tests de mariano" {
 	
 	test "test de saboresFaltantes"{
 		assert.equals(#{"melon", "vainilla"}, mariano.gustosFaltantes( #{"melon", "chocolate", "frutilla" , "vainilla"} ))
-	}
-	
+	}	
 }
 
